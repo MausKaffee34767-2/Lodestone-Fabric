@@ -9,11 +9,10 @@ import net.minecraft.util.random.RandomGenerator;
 import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.quiltmc.loader.api.ModContainer;
-import org.quiltmc.loader.api.QuiltLoader;
-import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
+import net.fabricmc.loader.api.FabricLoader;
+import net.fabricmc.api.ModInitializer;
 
-import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 
 public class LodestoneLib implements ModInitializer {
 	public static final Logger LOGGER = LogManager.getLogger("LodestoneLib");
@@ -21,10 +20,10 @@ public class LodestoneLib implements ModInitializer {
 	public static final RandomGenerator RANDOM = RandomGenerator.createLegacy();
 
 	@Override
-	public void onInitialize(ModContainer mod) {
+	public void onInitialize() {
 		LodestoneParticles.init();
-		if(QuiltLoader.isDevelopmentEnvironment()) {
-			Registry.register(Registry.ITEM, id("ort"), new OrtTestItem(new QuiltItemSettings().rarity(Rarity.EPIC).group(ItemGroup.MISC)));
+		if(FabricLoader.getInstance().isDevelopmentEnvironment()) {
+			Registry.register(Registry.ITEM, id("ort"), new OrtTestItem(new FabricItemSettings().rarity(Rarity.EPIC).group(ItemGroup.MISC)));
 		}
 	}
 	public static Identifier id(String path) {

@@ -12,7 +12,7 @@ import net.minecraft.client.render.ShaderProgram;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.Matrix4f;
-import org.quiltmc.loader.api.QuiltLoader;
+import net.fabricmc.loader.api.FabricLoader;
 
 import java.util.HashMap;
 
@@ -27,9 +27,9 @@ public class RenderHandler {
 	public static Matrix4f PARTICLE_MATRIX = null;
 
 	public static void init() {
-		EARLY_DELAYED_RENDER = VertexConsumerProvider.immediate(EARLY_BUFFERS, new BufferBuilder(QuiltLoader.isModLoaded("sodium") ? 262144 : 256));
-		DELAYED_RENDER = VertexConsumerProvider.immediate(BUFFERS, new BufferBuilder(QuiltLoader.isModLoaded("sodium") ? 2097152 : 256));
-		LATE_DELAYED_RENDER = VertexConsumerProvider.immediate(LATE_BUFFERS, new BufferBuilder(QuiltLoader.isModLoaded("sodium") ? 262144 : 256));
+		EARLY_DELAYED_RENDER = VertexConsumerProvider.immediate(EARLY_BUFFERS, new BufferBuilder(FabricLoader.getInstance().isModLoaded("sodium") ? 262144 : 256));
+		DELAYED_RENDER = VertexConsumerProvider.immediate(BUFFERS, new BufferBuilder(FabricLoader.getInstance().isModLoaded("sodium") ? 2097152 : 256));
+		LATE_DELAYED_RENDER = VertexConsumerProvider.immediate(LATE_BUFFERS, new BufferBuilder(FabricLoader.getInstance().isModLoaded("sodium") ? 262144 : 256));
 	}
 	public static void renderLast(MatrixStack stack) {
 		stack.push();
