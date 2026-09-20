@@ -1,4 +1,5 @@
 package com.sammy.lodestone.systems.rendering.particle.screen;
+
 import com.sammy.lodestone.systems.rendering.particle.SimpleParticleEffect;
 import com.sammy.lodestone.systems.rendering.particle.screen.base.ScreenParticle;
 import net.minecraft.item.ItemStack;
@@ -14,7 +15,7 @@ public class ScreenParticleEffect extends SimpleParticleEffect {
     public float xOffset;
     public float yOffset;
 
-	public Vec2f startingVelocity = Vec2f.ZERO, endingMotion = Vec2f.ZERO;
+    public Vec2f startingVelocity = Vec2f.ZERO, endingMotion = Vec2f.ZERO;
 
     public ScreenParticleEffect(ScreenParticleType<?> type) {
         this.type = type;

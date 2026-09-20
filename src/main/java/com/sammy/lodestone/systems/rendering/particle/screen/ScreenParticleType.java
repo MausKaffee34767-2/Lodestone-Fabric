@@ -6,6 +6,7 @@ import net.minecraft.world.World;
 public class ScreenParticleType<T extends ScreenParticleEffect> {
 
     public Factory<T> factory;
+
     public ScreenParticleType() {
     }
 

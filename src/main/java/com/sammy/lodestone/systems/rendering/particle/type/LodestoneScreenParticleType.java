@@ -10,20 +10,15 @@ import net.minecraft.world.World;
 
 public class LodestoneScreenParticleType extends ScreenParticleType<ScreenParticleEffect> {
 
-	public LodestoneScreenParticleType() {
-		super();
-	}
+    public LodestoneScreenParticleType() {
+        super();
+    }
 
-	public static class Factory implements ScreenParticleType.Factory<ScreenParticleEffect> {
-		public final SpriteProvider sprite;
+    public record Factory(SpriteProvider sprite) implements ScreenParticleType.Factory<ScreenParticleEffect> {
 
-		public Factory(SpriteProvider sprite) {
-			this.sprite = sprite;
-		}
-
-		@Override
-		public ScreenParticle createParticle(World clientWorld, ScreenParticleEffect options, double pX, double pY, double pXSpeed, double pYSpeed) {
-			return new GenericScreenParticle(clientWorld, options, (FabricSpriteProviderImpl) sprite, pX, pY, pXSpeed, pYSpeed);
-		}
-	}
+        @Override
+        public ScreenParticle createParticle(World clientWorld, ScreenParticleEffect options, double pX, double pY, double pXSpeed, double pYSpeed) {
+            return new GenericScreenParticle(clientWorld, options, (FabricSpriteProviderImpl) sprite, pX, pY, pXSpeed, pYSpeed);
+        }
+    }
 }

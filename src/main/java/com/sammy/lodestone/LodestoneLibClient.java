@@ -12,15 +12,15 @@ import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import static com.sammy.lodestone.LodestoneLib.MODID;
 
 public class LodestoneLibClient implements ClientModInitializer {
-	@Override
-	public void onInitializeClient() {
-		MidnightConfig.init(MODID, ClientConfig.class);
+    @Override
+    public void onInitializeClient() {
+        MidnightConfig.init(MODID, ClientConfig.class);
 
-		LodestoneRenderLayers.yea();
-		RenderHandler.init();
+        LodestoneRenderLayers.yea();
+        RenderHandler.init();
 //		OrtusParticles.init();
 
-		ClientPlayNetworking.registerGlobalReceiver(ScreenshakePacket.ID, (client, handler, buf, responseSender) -> new ScreenshakePacket(buf).apply(client.getNetworkHandler()));
-		ClientPlayNetworking.registerGlobalReceiver(PositionedScreenshakePacket.ID, (client, handler, buf, responseSender) -> PositionedScreenshakePacket.fromBuf(buf).apply(client.getNetworkHandler()));
-	}
+        ClientPlayNetworking.registerGlobalReceiver(ScreenshakePacket.ID, (client, handler, buf, responseSender) -> new ScreenshakePacket(buf).apply(client.getNetworkHandler()));
+        ClientPlayNetworking.registerGlobalReceiver(PositionedScreenshakePacket.ID, (client, handler, buf, responseSender) -> PositionedScreenshakePacket.fromBuf(buf).apply(client.getNetworkHandler()));
+    }
 }

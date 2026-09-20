@@ -12,9 +12,21 @@ import java.util.function.Consumer;
 
 public class WorldParticleEffect extends SimpleParticleEffect implements ParticleEffect {
 
+    public static final Factory<WorldParticleEffect> DESERIALIZER = new Factory<>() {
+        @Override
+        public WorldParticleEffect read(ParticleType<WorldParticleEffect> type, StringReader reader) {
+            return new WorldParticleEffect(type);
+        }
+
+        @Override
+        public WorldParticleEffect read(ParticleType<WorldParticleEffect> type, PacketByteBuf buf) {
+            return new WorldParticleEffect(type);
+        }
+    };
     public ParticleType<?> type;
     public Vec3f startingVelocity = Vec3f.ZERO, endingMotion = Vec3f.ZERO;
-	public Consumer<GenericParticle> actor;
+    public Consumer<GenericParticle> actor;
+
     public WorldParticleEffect(ParticleType<?> type) {
         this.type = type;
     }
@@ -36,15 +48,4 @@ public class WorldParticleEffect extends SimpleParticleEffect implements Particl
     public String asString() {
         return "";
     }
-    public static final Factory<WorldParticleEffect> DESERIALIZER = new Factory<>() {
-        @Override
-        public WorldParticleEffect read(ParticleType<WorldParticleEffect> type, StringReader reader) {
-            return new WorldParticleEffect(type);
-        }
-
-        @Override
-        public WorldParticleEffect read(ParticleType<WorldParticleEffect> type, PacketByteBuf buf) {
-            return new WorldParticleEffect(type);
-        }
-    };
 }

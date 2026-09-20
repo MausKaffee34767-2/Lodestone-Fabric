@@ -12,16 +12,18 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(InGameHud.class)
-final class InGameHudMixin {
-	@Shadow @Final private MinecraftClient client;
+public class InGameHudMixin {
+    @Shadow
+    @Final
+    private MinecraftClient client;
 
-	@Inject(at = @At("HEAD"), method = "renderHotbar")
-	private void lodestone$renderHotbarStart(float l1, MatrixStack j1, CallbackInfo ci) {
-		ScreenParticleHandler.renderingHotbar = true;
-	}
+    @Inject(at = @At("HEAD"), method = "renderHotbar")
+    private void lodestone$renderHotbarStart(float l1, MatrixStack j1, CallbackInfo ci) {
+        ScreenParticleHandler.renderingHotbar = true;
+    }
 
-	@Inject(at = @At("RETURN"), method = "renderHotbar")
-	private void lodestone$renderHotbarEnd(float l1, MatrixStack j1, CallbackInfo ci) {
-		ScreenParticleHandler.renderingHotbar = false;
-	}
+    @Inject(at = @At("RETURN"), method = "renderHotbar")
+    private void lodestone$renderHotbarEnd(float l1, MatrixStack j1, CallbackInfo ci) {
+        ScreenParticleHandler.renderingHotbar = false;
+    }
 }

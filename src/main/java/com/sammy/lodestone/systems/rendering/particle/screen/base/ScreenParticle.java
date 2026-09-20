@@ -1,17 +1,14 @@
 package com.sammy.lodestone.systems.rendering.particle.screen.base;
 
-import com.mojang.blaze3d.vertex.BufferBuilder;
 import net.minecraft.client.particle.ParticleTextureSheet;
-import net.minecraft.util.random.RandomGenerator;
+import net.minecraft.client.render.BufferBuilder;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 
 public abstract class ScreenParticle {
 
-    public enum RenderOrder{
-        BEFORE_UI, BEFORE_TOOLTIPS, AFTER_EVERYTHING
-    }
-
     public final World clientWorld; // this can't be a ClientWorld cause of server environment stuff
+    public final Random random = Random.create();
     public double prevX;
     public double prevY;
     public double x;
@@ -21,7 +18,6 @@ public abstract class ScreenParticle {
     public double totalX;
     public double totalY;
     public boolean removed;
-    public final RandomGenerator random = RandomGenerator.createLegacy();
     public int age;
     public int maxAge;
     public float gravityStrength;
@@ -75,20 +71,20 @@ public abstract class ScreenParticle {
         this.alpha = pAlpha;
     }
 
-    public void setMaxAge(int pMaxAge) {
-        this.maxAge = pMaxAge;
-    }
-
     public int getMaxAge() {
         return this.maxAge;
     }
 
-    public void setRenderOrder(RenderOrder renderOrder){
-        this.renderOrder = renderOrder;
+    public void setMaxAge(int pMaxAge) {
+        this.maxAge = pMaxAge;
     }
 
     public RenderOrder getRenderOrder() {
         return renderOrder;
+    }
+
+    public void setRenderOrder(RenderOrder renderOrder) {
+        this.renderOrder = renderOrder;
     }
 
     public void tick() {
@@ -117,5 +113,9 @@ public abstract class ScreenParticle {
 
     public boolean isAlive() {
         return !this.removed;
+    }
+
+    public enum RenderOrder {
+        BEFORE_UI, BEFORE_TOOLTIPS, AFTER_EVERYTHING
     }
 }

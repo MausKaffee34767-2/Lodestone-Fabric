@@ -9,9 +9,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(WorldRenderer.class)
 public class WorldRendererMixin {
-	@Inject(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gl/ShaderEffect;render(F)V", ordinal = 1))
-	public void lodestone$injectionBeforeTransparencyChainProcess(CallbackInfo ci) {
-		PostProcessHandler.copyDepthBuffer();
-	}
+    @Inject(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gl/ShaderEffect;render(F)V", ordinal = 1))
+    public void lodestone$injectionBeforeTransparencyChainProcess(CallbackInfo ci) {
+        PostProcessHandler.copyDepthBuffer();
+    }
 
 }

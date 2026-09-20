@@ -8,8 +8,8 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 
 @Mixin(FabricSpriteProviderImpl.class)
 public interface FabricSpriteProviderImplAccessor {
-	@Invoker("<init>")
-	static FabricSpriteProviderImpl FabricSpriteProviderImpl(ParticleManager manager, SpriteProvider delegate) {
-		throw new AssertionError();
-	}
+    @Invoker("<init>")
+    static FabricSpriteProviderImpl FabricSpriteProviderImpl(ParticleManager manager, SpriteProvider delegate) {
+        throw new AssertionError();
+    }
 }

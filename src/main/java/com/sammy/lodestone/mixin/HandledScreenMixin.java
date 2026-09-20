@@ -11,9 +11,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import static com.sammy.lodestone.systems.rendering.particle.screen.base.ScreenParticle.RenderOrder.BEFORE_TOOLTIPS;
 
 @Mixin(HandledScreen.class)
-final class HandledScreenMixin {
-	@Inject(at = @At("RETURN"), method = "render")
-	private void lodestone$beforeTooltipParticle(MatrixStack matrices, int mouseX, int mouseY, float delta, CallbackInfo ci) {
-		ScreenParticleHandler.renderParticles(BEFORE_TOOLTIPS);
-	}
+public class HandledScreenMixin {
+    @Inject(at = @At("RETURN"), method = "render")
+    private void lodestone$beforeTooltipParticle(MatrixStack matrices, int mouseX, int mouseY, float delta, CallbackInfo ci) {
+        ScreenParticleHandler.renderParticles(BEFORE_TOOLTIPS);
+    }
 }

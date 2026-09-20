@@ -12,13 +12,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import static com.sammy.lodestone.LodestoneLib.RANDOM;
 
-
 @Mixin(Camera.class)
 public class CameraMixin {
-	@Inject(method = "update", at = @At("RETURN"))
-	private void lodestoneScreenshake(BlockView area, Entity focusedEntity, boolean thirdPerson, boolean inverseView, float tickDelta, CallbackInfo ci) {
-		if (ClientConfig.SCREENSHAKE_INTENSITY > 0) {
-			ScreenshakeHandler.cameraTick((Camera) (Object) this, RANDOM);
-		}
-	}
+    @Inject(method = "update", at = @At("RETURN"))
+    private void lodestoneScreenshake(BlockView area, Entity focusedEntity, boolean thirdPerson, boolean inverseView, float tickDelta, CallbackInfo ci) {
+        if (ClientConfig.SCREENSHAKE_INTENSITY > 0) {
+            ScreenshakeHandler.cameraTick((Camera) (Object) this, RANDOM);
+        }
+    }
 }

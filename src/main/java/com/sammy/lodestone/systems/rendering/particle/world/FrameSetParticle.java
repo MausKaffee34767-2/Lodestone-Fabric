@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class FrameSetParticle extends GenericParticle {
     public ArrayList<Integer> frameSet = new ArrayList<>();
+
     public FrameSetParticle(ClientWorld world, WorldParticleEffect data, FabricSpriteProviderImpl spriteSet, double x, double y, double z, double xd, double yd, double zd) {
         super(world, data, spriteSet, x, y, z, xd, yd, zd);
     }

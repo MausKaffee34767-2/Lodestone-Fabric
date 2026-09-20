@@ -1,37 +1,36 @@
 {
-	"schemaVersion": 1,
-	"group": "com.sammy.lodestone",
-	"id": "lodestone",
-	"version": "${version}",
-	"name": "LodestoneLib",
-	"description": "Library for all of the Lodestone team's projects, now 21% more gay",
-	"authors": [
-		"Sammy"
+    "schemaVersion": 1,
+    "id": "lodestone",
+    "version": "${version}",
+    "name": "LodestoneLib",
+    "description": "Library for all of the Lodestone team's projects, now 21% more gay",
+    "authors": [
+        "Sammy"
     ],
     "contributors": [
-		"Arathain",
+        "Arathain",
         "MausKaffee34767"
     ],
-	"contact": {
-		"issues": "https://github.com/MausKaffee34767-2/Lodestone-Fabric/issues",
-		"sources": "https://github.com/MausKaffee34767-2/Lodestone-Fabric"
-	},
-	"icon": "assets/lodestone/icon.png",
-	"entrypoints": {
-		"main": [
+    "contact": {
+        "issues": "https://github.com/MausKaffee34767-2/Lodestone-Fabric/issues",
+        "sources": "https://github.com/MausKaffee34767-2/Lodestone-Fabric"
+    },
+    "icon": "assets/lodestone/icon.png",
+    "entrypoints": {
+        "main": [
             "com.sammy.lodestone.LodestoneLib"
         ],
-		"client": [
+        "client": [
             "com.sammy.lodestone.LodestoneLibClient"
         ]
-	},
-	"depends":  {
+    },
+    "depends":  {
         "fabricloader": ">=0.19.5",
         "fabric-api": "*",
-		"minecraft": ">=1.19.1"
-	},
-	"accessWidener": "lodestone.accesswidener",
-	"mixins": [
+        "minecraft": ">=1.19.2"
+    },
+    "accessWidener": "lodestone.accesswidener",
+    "mixins": [
         "lodestone.mixins.json"
     ]
 }
