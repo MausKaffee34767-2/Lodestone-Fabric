@@ -40,11 +40,7 @@ tasks.withType(JavaCompile).configureEach {
 	it.options.encoding = "UTF-8"
 	it.options.release = 17
 }
-/*
-tasks.withType(JavaExec).configureEach {
-	jvmArgs "-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=127.0.0.1:5005"
-}
-*/
+
 java {
 	sourceCompatibility = JavaVersion.VERSION_17
 	targetCompatibility = JavaVersion.VERSION_17
